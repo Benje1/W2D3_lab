@@ -37,10 +37,10 @@ class TestPub(unittest.TestCase):
         self.assertEqual(100.00, self.pub.till)
         self.assertEqual(40.00, customer1.wallet)
     
-    def check_drunkeness_of_customer(self):
-        
-    
-        
-    
-
-    
+    def test_check_drunkeness_of_customer(self):
+        counter = 0
+        self.pub.add_customer_to_pub(self.customer)
+        while counter < 6:
+            self.pub.sell_drink_to_customer(self.customer, self.drink)
+            counter += 1
+        self.assertEqual(5, self.customer.alcohol_level)
