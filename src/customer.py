@@ -14,3 +14,6 @@ class Customer:
         self.reduce_wallet(drink.price)
         self.alcohol_level += drink.alcohol_level
 
+    def buy_food(self, food):
+        self.reduce_wallet(food.price)
+        self.alcohol_level -= food.rejuvenation_level
