@@ -79,3 +79,7 @@ class TestPub(unittest.TestCase):
         self.pub.add_drink(self.drink)
         self.assertEqual(3, self.pub.check_stock_level(self.drink))
     
+    def test_check_stock_total_value(self):
+        self.pub.add_drink(self.drink)
+        self.assertEqual(30, self.pub.check_stock_total_value(self.drink))
+    

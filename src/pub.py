@@ -33,4 +33,10 @@ class Pub:
             return self.stock[drink]
         else:
             return 0
+    
+    def check_stock_total_value(self, drink):
+        total_value = 0
+        for drink in self.stock:
+            total_value += drink.price * self.stock[drink]
+        return total_value
 
