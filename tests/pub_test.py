@@ -13,6 +13,13 @@ class TestPub(unittest.TestCase):
         self.pub1 = Pub("Baneermans", 200.00)
         self.drink = Drink("Beer", 10, 1)
         self.food = Food("Burgher", 30, 2)
+
+        # {name: ....
+        # alcohol: ...
+        # number_of: ...}
+        #Change all drinks append,
+        #function reduces number of
+        # name a list of and pass it on?
     
     def test_pub_has_name(self):
         self.assertEqual("The Prancing Pony", self.pub.name)
@@ -56,8 +63,8 @@ class TestPub(unittest.TestCase):
         counter = 0
         self.pub.add_customer_to_pub(self.customer)
         self.pub.sell_food_to_customer(self.customer, self.food)
-        while counter < 10:
+        while counter < 6:
             self.pub.sell_drink_to_customer(self.customer, self.drink)
             counter += 1
-        self.assertEqual(5, self.customer.alcohol_level)
-        self.assertEqual(7, len(self.customer.drinks))
+        self.assertEqual(4, self.customer.alcohol_level)
+        self.assertEqual(6, len(self.customer.drinks))

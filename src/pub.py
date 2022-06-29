@@ -3,7 +3,6 @@ class Pub:
         self.name = _pub_name
         self.till = _till
         self.customers = []
-        # self.drink = []
     
     def increase_till(self, amount):
         self.till += amount
