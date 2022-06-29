@@ -14,8 +14,9 @@ class Pub:
     
     def sell_drink_to_customer(self, customer, drink):
         if customer.age >= 18 and customer.alcohol_level < 5:
-            customer.buy_drink(drink)
-            self.increase_till(drink.price)
+            if self.check_stock_level(drink) > 0:
+                customer.buy_drink(drink)
+                self.increase_till(drink.price)
     
     def sell_food_to_customer(self, customer, food):
         customer.buy_food(food)

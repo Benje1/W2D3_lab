@@ -33,6 +33,7 @@ class TestPub(unittest.TestCase):
         self.assertEqual(1, len(self.pub.customers))
 
     def test_sell_drink_to_customer(self):
+        self.pub.add_drink(self.drink)
         self.pub.add_customer_to_pub(self.customer)
         self.pub.sell_drink_to_customer(self.customer, self.drink)
         self.assertEqual(110.00, self.pub.till)
@@ -47,6 +48,8 @@ class TestPub(unittest.TestCase):
         self.assertEqual(40.00, customer1.wallet)
     
     def test_check_drunkeness_of_customer(self):
+        self.pub.add_drink(self.drink)
+        self.pub.add_drink(self.drink)
         counter = 0
         self.pub.add_customer_to_pub(self.customer)
         while counter < 6:
@@ -60,8 +63,9 @@ class TestPub(unittest.TestCase):
         self.assertEqual(-2, self.customer.alcohol_level)
     
     def test_check_food_and_drink(self):
-        self.pub.add_drink
-        self.pub.add_drink
+        self.pub.add_drink(self.drink)
+        self.pub.add_drink(self.drink)
+        self.pub.add_drink(self.drink)
         counter = 0
         self.pub.add_customer_to_pub(self.customer)
         self.pub.sell_food_to_customer(self.customer, self.food)
