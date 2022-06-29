@@ -60,6 +60,8 @@ class TestPub(unittest.TestCase):
         self.assertEqual(-2, self.customer.alcohol_level)
     
     def test_check_food_and_drink(self):
+        self.pub.add_drink
+        self.pub.add_drink
         counter = 0
         self.pub.add_customer_to_pub(self.customer)
         self.pub.sell_food_to_customer(self.customer, self.food)
@@ -68,3 +70,8 @@ class TestPub(unittest.TestCase):
             counter += 1
         self.assertEqual(4, self.customer.alcohol_level)
         self.assertEqual(6, len(self.customer.drinks))
+    
+    def test_check_stock(self):
+        self.pub.add_drink(self.drink)
+        self.assertEqual(3, self.pub.check_stock_level(self.drink))
+    

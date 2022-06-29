@@ -3,6 +3,7 @@ class Pub:
         self.name = _pub_name
         self.till = _till
         self.customers = []
+        self.stock = {}
     
     def increase_till(self, amount):
         self.till += amount
@@ -19,3 +20,16 @@ class Pub:
     def sell_food_to_customer(self, customer, food):
         customer.buy_food(food)
         self.increase_till(food.price)
+    
+    def add_drink(self, drink):
+        if drink in self.stock:
+            self.stock[drink] += 3
+        else:
+            self.stock[drink] = 3
+    
+    def check_stock_level(self, drink):
+        if drink in self.stock:
+            return self.stock[drink]
+        else:
+            return 0
+
