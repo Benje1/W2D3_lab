@@ -3,7 +3,14 @@ class Customer:
         self.name = _name
         self.wallet = _wallet
         self.age = _age
-        self.drunkeness = 0
+        self.drinks = []
+        self.alcohol_level = 0
 
     def reduce_wallet(self, amount):
         self.wallet -= amount
+
+    def buy_drink(self, drink):
+        self.drinks.append(drink)
+        self.reduce_wallet(drink.price)
+        self.alcohol_level += drink.alcohol_level
+

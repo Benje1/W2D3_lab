@@ -3,7 +3,7 @@ class Pub:
         self.name = _pub_name
         self.till = _till
         self.customers = []
-        self.drink = []
+        # self.drink = []
     
     def increase_till(self, amount):
         self.till += amount
@@ -13,10 +13,6 @@ class Pub:
 
     
     def sell_drink_to_customer(self, customer, drink):
-        pass
-    # add drink to customer, remove the price of drink
-    # add price of drink to till
-    # reduce stock
-    
-    
-    
+        if customer.age >= 18 and customer.alcohol_level < 5:
+            customer.buy_drink(drink)
+            self.increase_till(drink.price)
